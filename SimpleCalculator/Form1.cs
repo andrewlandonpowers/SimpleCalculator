@@ -14,11 +14,16 @@ namespace SimpleCalculator
 
         decimal result = 0.0m;
 
+
+        /*
+         * label4Click: Exists due to accidentally clicking on label4 twice when editing.
+         */
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
 
+        // textBox1_TextChanged, as well as the other 2 call clearResult, clearing textbox4
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             clearResult();
@@ -34,6 +39,11 @@ namespace SimpleCalculator
             clearResult();
         }
 
+
+        /*button1_Click. Will turn the textbox text into decimal values with tryParse.
+         * Then calls calculate, sending those two decimals, rounds the result, then
+         * displays that result in textBox4.
+         */
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -55,7 +65,7 @@ namespace SimpleCalculator
                 operand1= 0.0m;
             }
 
-            result = Calculate(operand1, operator1, operand2);
+            result = Calculate(operand1, operand2);
 
             result = Math.Round(result, 4);
 
@@ -64,8 +74,11 @@ namespace SimpleCalculator
             textBox1.Focus();
         }
 
-
-        private decimal Calculate(decimal operand1, string operator1, decimal operand2)
+        /*Calculate:
+         * Takes the decimal operand1 and decimal operand2.
+         * Calculates the values for the program. Called by button1_Click.
+         */
+        private decimal Calculate(decimal operand1, decimal operand2)
         {
             if (textBox2.Text == "/")
             {
@@ -88,10 +101,13 @@ namespace SimpleCalculator
             return result;
         }
 
+        // clearResult clears textBox4. 
         private void clearResult()
         {
             textBox4.Clear();
         }
+
+        // button2_Click is the exit button. It does as it says.
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
