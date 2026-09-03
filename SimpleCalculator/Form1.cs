@@ -2,6 +2,7 @@ namespace SimpleCalculator
 {
     public partial class Form1 : Form
     {
+        // Comment example! I finished this project on tuesday after class, but it was almost completely done before that point.
         public Form1()
         {
             InitializeComponent();
